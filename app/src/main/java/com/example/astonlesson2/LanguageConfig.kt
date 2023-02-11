@@ -20,5 +20,6 @@ class LanguageConfig {
 
             return ContextWrapper(context.createConfigurationContext(configuration))
         }
+        var currentLanguage = "ru"
     }
 }
