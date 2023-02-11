@@ -8,7 +8,6 @@ android {
     compileSdk 33
 
     defaultConfig {
-        resConfigs ("en", "ru")
         applicationId "com.example.astonlesson2"
         minSdk 24
         targetSdk 33
