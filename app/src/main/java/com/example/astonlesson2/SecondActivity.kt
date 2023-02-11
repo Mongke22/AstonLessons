@@ -16,7 +16,7 @@ class SecondActivity : AppCompatActivity() {
         val etText = findViewById<EditText>(R.id.et_text)
         btnBack.setOnClickListener {
             val data = Intent()
-            data.putExtra(SecondActivityContract.RESULT_KEY, etText.text)
+            data.putExtra(SecondActivityContract.RESULT_KEY, etText.text.toString())
             setResult(RESULT_OK, data)
             finish()
         }
