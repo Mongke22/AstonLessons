@@ -14,7 +14,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnSwitchToSecondActivity: Button
     private lateinit var someText: TextView
     private val activityLauncher = registerForActivityResult(SecondActivityContract()) { result ->
-        someText.text = result
+        if(!result.isNullOrEmpty()) {
+            someText.text = result
+        }
     }
     override fun attachBaseContext(newBase: Context?) {
         val context: Context = LanguageConfig.changeLanguage(newBase!!, LanguageConfig.currentLanguage)
