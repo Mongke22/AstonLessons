@@ -5,4 +5,5 @@
     <string name="btn_english">Англиский</string>
     <string name="toSecondActivity">На 2 активити</string>
     <string name="backBtnText" translatable="false">Back</string>
+    <string name="text_to_translate">Текст для перевода</string>
 </resources>
