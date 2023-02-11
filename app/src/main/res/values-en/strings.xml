@@ -4,5 +4,6 @@
     <string name="btn_russian">Russian</string>
     <string name="someText">just a text</string>
     <string name="btn_english">English</string>
+    <string name="toSecondActivity">To 2 activity</string>
 
 </resources>
