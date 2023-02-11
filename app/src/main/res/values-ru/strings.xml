@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AstonLesson2</string>
+    <string name="btn_russian">Русский</string>
+    <string name="someText">просто текст</string>
+    <string name="btn_english">Англиский</string>
+</resources>
