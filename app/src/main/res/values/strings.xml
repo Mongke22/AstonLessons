@@ -4,4 +4,5 @@
     <string name="someText">просто текст</string>
     <string name="btn_english">Англиский</string>
     <string name="toSecondActivity">На 2 активити</string>
+    <string name="backBtnText" translatable="false">Back</string>
 </resources>
