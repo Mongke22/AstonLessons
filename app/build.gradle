@@ -5,12 +5,13 @@ plugins {
 
 android {
     namespace 'com.example.astonlesson2'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
+        resConfigs ("en", "ru")
         applicationId "com.example.astonlesson2"
         minSdk 24
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
