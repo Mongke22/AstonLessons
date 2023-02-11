@@ -2,12 +2,9 @@ package com.example.astonlesson2
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
-import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,8 +12,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnSwitchToRussian: Button
     private lateinit var btnSwitchToEnglish: Button
     private lateinit var btnSwitchToSecondActivity: Button
+    private lateinit var someText: TextView
     private val activityLauncher = registerForActivityResult(SecondActivityContract()) { result ->
-        val someText = findViewById<TextView>(R.id.tv_someText)
         someText.text = result
     }
     override fun attachBaseContext(newBase: Context?) {
@@ -30,7 +27,18 @@ class MainActivity : AppCompatActivity() {
         btnSwitchToRussian = findViewById<Button>(R.id.btn_russian)
         btnSwitchToEnglish = findViewById<Button>(R.id.btn_english)
         btnSwitchToSecondActivity = findViewById<Button>(R.id.btn_switchToSecondActivity)
+        someText = findViewById(R.id.tv_someText)
         setListeners()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putString(SecondActivityContract.RESULT_KEY, someText.text.toString());
+        super.onSaveInstanceState(outState);
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        someText.text = (savedInstanceState.getString(SecondActivityContract.RESULT_KEY))
     }
 
     private fun setListeners(){
