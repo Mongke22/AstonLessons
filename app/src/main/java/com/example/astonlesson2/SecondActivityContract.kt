@@ -12,7 +12,11 @@ class SecondActivityContract: ActivityResultContract<Unit, String?>() {
 
     override fun parseResult(resultCode: Int, intent: Intent?): String? = when {
         resultCode != Activity.RESULT_OK -> null
-        else -> intent?.getStringExtra("my_result_key")
+        else -> intent?.getStringExtra(RESULT_KEY)
+    }
+
+    companion object{
+        val RESULT_KEY = "my_result_key"
     }
 
 }
