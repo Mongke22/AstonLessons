@@ -2,6 +2,7 @@ package com.example.astonlesson2
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
@@ -14,7 +15,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnSwitchToRussian: Button
     private lateinit var btnSwitchToEnglish: Button
     private lateinit var btnSwitchToSecondActivity: Button
-
+    private val activityLauncher = registerForActivityResult(SecondActivityContract()) { result ->
+        val someText = findViewById<TextView>(R.id.tv_someText)
+        someText.text = result
+    }
     override fun attachBaseContext(newBase: Context?) {
         val context: Context = LanguageConfig.changeLanguage(newBase!!, LanguageConfig.currentLanguage)
         super.attachBaseContext(context)
@@ -39,10 +43,6 @@ class MainActivity : AppCompatActivity() {
             recreate()
         }
         btnSwitchToSecondActivity.setOnClickListener {
-            val activityLauncher = registerForActivityResult(SecondActivityContract()) { result ->
-                val someText = findViewById<TextView>(R.id.tv_someText)
-                someText.text = result
-            }
             activityLauncher.launch(Unit)
         }
     }
