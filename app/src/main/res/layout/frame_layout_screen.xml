@@ -40,12 +40,14 @@
         android:src="@drawable/po_96" />
 
     <ImageView
+        android:id="@+id/prev"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|start"
         android:src="@drawable/sw_96" />
 
     <ImageView
+        android:id="@+id/next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
