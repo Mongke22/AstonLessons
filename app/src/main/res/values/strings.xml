@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">AstonLesson2</string>
+    <string name="Title">ИТ-решения для развития бизнеса</string>
+    <string name="subTitle">Разработка программного обеспечения</string>
+    <string name="infoAbout">О нас:</string>
+    <string name="infoDescription">Aston — компания по разработке ПО с полным циклом услуг. Уже 15 лет мы помогаем заказчикам по всему миру трансформировать бизнес, создавая эффективные мобильные и десктопные решения.</string>
+    <string name="oficcesText">Офисы</string>
+    <string name="officeFirst">Санкт-Петербург</string>
+    <string name="officeSecond">Ростов-на-Дону</string>
+    <string name="officeThird">Казань</string>
+    <string name="officeFourth">Алматы</string>
+    <string name="officeFifth">Гомель</string>
+    <string name="officeSixth">Витебск</string>
+    <string name="firstBtn">Контакты</string>
+    <string name="secondBtn">Вакансии</string>
+    <string name="thirdBtn">Галерея</string>
 </resources>

@@ -51,7 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:text="ИТ-решения для развития бизнеса"
+        android:text="@string/Title"
         android:textColor="@color/black"
         android:textSize="28sp"
         android:textStyle="bold"
@@ -65,7 +65,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:text="Разработка программного обеспечения"
+        android:text="@string/subTitle"
         android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constrainedWidth="true"
@@ -87,7 +87,7 @@
         android:id="@+id/about"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="О нас:"
+        android:text="@string/infoAbout"
         android:textColor="@color/black"
         android:textSize="26sp"
         android:textStyle="bold"
@@ -99,7 +99,7 @@
         android:id="@+id/description"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Aston — компания по разработке ПО с полным циклом услуг. Уже 15 лет мы помогаем заказчикам по всему миру трансформировать бизнес, создавая эффективные мобильные и десктопные решения."
+        android:text="@string/infoDescription"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@id/rightGuideLine"
@@ -111,7 +111,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="Офисы"
+        android:text="@string/oficcesText"
         android:textColor="@color/black"
         android:textSize="26sp"
         android:textStyle="bold"
@@ -146,42 +146,42 @@
         style="@style/greyButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Санкт-Петербург" />
+        android:text="@string/officeFirst" />
 
     <TextView
         android:id="@+id/office_2"
         style="@style/greyButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ростов-на-Дону" />
+        android:text="@string/officeSecond" />
 
     <TextView
         android:id="@+id/office_3"
         style="@style/greyButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Казань" />
+        android:text="@string/officeThird" />
 
     <TextView
         android:id="@+id/office_4"
         style="@style/greyButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Алматы" />
+        android:text="@string/officeFourth" />
 
     <TextView
         android:id="@+id/office_5"
         style="@style/greyButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Гомель" />
+        android:text="@string/officeFifth" />
 
     <TextView
         android:id="@+id/office_6"
         style="@style/greyButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Витебск" />
+        android:text="@string/officeSixth" />
 
 
     <androidx.constraintlayout.widget.Group
@@ -194,7 +194,7 @@
         android:id="@+id/firstBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Контакты"
+        android:text="@string/firstBtn"
         android:layout_marginTop="5dp"
         app:layout_constraintEnd_toStartOf="@id/secondBtn"
         app:layout_constraintStart_toStartOf="@id/leftGuideLine"
@@ -206,7 +206,7 @@
         android:id="@+id/secondBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Вакансии"
+        android:text="@string/secondBtn"
         android:layout_marginTop="5dp"
         app:layout_constraintEnd_toStartOf="@id/thirdBtn"
         app:layout_constraintStart_toEndOf="@id/firstBtn"
@@ -216,7 +216,7 @@
         android:id="@+id/thirdBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Галерея"
+        android:text="@string/thirdBtn"
         android:layout_marginTop="5dp"
         app:layout_constraintEnd_toEndOf="@id/rightGuideLine"
         app:layout_constraintStart_toEndOf="@id/secondBtn"
