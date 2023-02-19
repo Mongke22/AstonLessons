@@ -27,13 +27,17 @@ class MyCustomClockVIew(
         }
     var secondHandWidth = SECOND_HAND_DEFAULT_WIDTH
         set(value) {
-            field = value
-            secondHandPaint.strokeWidth = MAX_HAND_WIDTH * (value / HUNDRED_PERCENT)
+            if(value in 1..100) {
+                field = value
+                secondHandPaint.strokeWidth = MAX_HAND_WIDTH * (value / HUNDRED_PERCENT)
+            }
         }
     var secondHandLength = SECOND_HAND_DEFAULT_LENGTH
         set(value) {
-            field = value
-            findSecondHandFinishPoint()
+            if(value in 1..100) {
+                field = value
+                findSecondHandFinishPoint()
+            }
         }
 
     var minuteHandColor = MINUTE_HAND_DEFAULT_COLOR
@@ -43,13 +47,17 @@ class MyCustomClockVIew(
         }
     var minuteHandWidth = MINUTE_HAND_DEFAULT_WIDTH
         set(value) {
-            field = value
-            minuteHandPaint.strokeWidth = MAX_HAND_WIDTH * (value /HUNDRED_PERCENT)
+            if(value in 1..100) {
+                field = value
+                minuteHandPaint.strokeWidth = MAX_HAND_WIDTH * (value / HUNDRED_PERCENT)
+            }
         }
     var minuteHandLength = MINUTE_HAND_DEFAULT_LENGTH
         set(value) {
-            field = value
-            findMinuteHandFinishPoint()
+            if(value in 1..100) {
+                field = value
+                findMinuteHandFinishPoint()
+            }
         }
 
     var hourHandColor = HOUR_HAND_DEFAULT_COLOR
@@ -59,16 +67,20 @@ class MyCustomClockVIew(
         }
     var hourHandWidth = HOUR_HAND_DEFAULT_WIDTH
         set(value) {
-            field = value
-            hourHandPaint.strokeWidth = MAX_HAND_WIDTH * (value / HUNDRED_PERCENT)
+            if(value in 1..100) {
+                field = value
+                hourHandPaint.strokeWidth = MAX_HAND_WIDTH * (value / HUNDRED_PERCENT)
+            }
         }
     var hourHandLength = HOUR_HAND_DEFAULT_LENGTH
         set(value) {
-            field = value
-            findHourHandFinishPoint()
+            if(value in 1..100) {
+                field = value
+                findHourHandFinishPoint()
+            }
         }
 
-    var timeIndicatorsCoordinates = ArrayList<Pair<PointF, PointF>>()
+    private var timeIndicatorsCoordinates = ArrayList<Pair<PointF, PointF>>()
 
     private val secondHandFinishPoint = PointF()
     private val minuteHandFinishPoint = PointF()
