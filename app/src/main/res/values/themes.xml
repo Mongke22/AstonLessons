@@ -11,6 +11,21 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="myCustomClockStyle">@style/DefaultMyCustomClockStyle</item>
         <!-- Customize your theme here. -->
+    </style>
+
+    <style name="DefaultMyCustomClockStyle">
+        <item name="secondHandColor">#000066</item>
+        <item name="secondHandWidth">10</item>
+        <item name="secondHandLength">20</item>
+
+        <item name="minuteHandColor">#660000</item>
+        <item name="minuteHandWidth">20</item>
+        <item name="minuteHandLength">40</item>
+
+        <item name="hourHandColor">#000000</item>
+        <item name="hourHandWidth">40</item>
+        <item name="hourHandLength">80</item>
     </style>
 </resources>

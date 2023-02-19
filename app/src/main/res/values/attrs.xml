@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+     <declare-styleable name="MyCustomClockVIew">
+          <attr name="secondHandColor" format="color"/>
+          <attr name="secondHandWidth" format="integer"/>
+          <attr name="secondHandLength" format="integer"/>
+
+          <attr name="minuteHandColor" format="color"/>
+          <attr name="minuteHandWidth" format="integer"/>
+          <attr name="minuteHandLength" format="integer"/>
+
+          <attr name="hourHandColor" format="color"/>
+          <attr name="hourHandWidth" format="integer"/>
+          <attr name="hourHandLength" format="integer"/>
+     </declare-styleable>
+
+     <attr name="myCustomClockStyle" format="reference"/>
+</resources>
