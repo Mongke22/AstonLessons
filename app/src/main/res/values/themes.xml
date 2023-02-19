@@ -16,7 +16,7 @@
     </style>
 
     <style name="DefaultMyCustomClockStyle">
-        <item name="secondHandColor">#000066</item>
+        <item name="secondHandColor">#06EC89</item>
         <item name="secondHandWidth">10</item>
         <item name="secondHandLength">20</item>
 
@@ -24,7 +24,7 @@
         <item name="minuteHandWidth">20</item>
         <item name="minuteHandLength">40</item>
 
-        <item name="hourHandColor">#000000</item>
+        <item name="hourHandColor">#7C7A7A</item>
         <item name="hourHandWidth">40</item>
         <item name="hourHandLength">80</item>
     </style>
