@@ -12,6 +12,13 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+
+        <item name="astonElementStyle">@style/defaultAstonElementStyle</item>
         <!-- Customize your theme here. -->
+    </style>
+    
+    <style name="defaultAstonElementStyle">
+        <item name="astonTitleText">@string/Title</item>
+        <item name="astonSubTitleText">@string/subTitle</item>
     </style>
 </resources>
