@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AstonElement">
+        <attr name="astonImageSrc" format="reference"/>
+        <attr name="astonTitleText" format="string"/>
+        <attr name="astonSubTitleText" format="string"/>
+    </declare-styleable>
+    
+    <attr name="astonElementStyle" format="reference"/>
+</resources>
