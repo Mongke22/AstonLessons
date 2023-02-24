@@ -74,6 +74,7 @@ class AuthorisationFragment : Fragment() {
                     bottomMenu.visibility = View.VISIBLE
                     val menu = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
                     menu.menu.findItem(R.id.home_page_fragment).isChecked = true
+                    requireActivity().title = "Home"
 
                 }
             }
