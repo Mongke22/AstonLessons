@@ -1,5 +1,9 @@
 package com.example.astonlesson2
 
+import com.example.astonlesson2.fragments.HomePageFragment
+import com.example.astonlesson2.fragments.VacanciesListFragment
+import com.example.astonlesson2.models.Vacancy
+
 object Navigator {
     private var mainActivity: MainActivity? = null
 

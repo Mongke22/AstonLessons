@@ -1,4 +1,4 @@
-package com.example.astonlesson2
+package com.example.astonlesson2.models
 
 import android.net.Uri
 import java.io.Serializable

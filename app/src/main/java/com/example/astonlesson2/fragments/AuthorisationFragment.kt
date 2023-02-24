@@ -1,4 +1,4 @@
-package com.example.astonlesson2
+package com.example.astonlesson2.fragments
 
 
 import android.os.Bundle
@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
+import com.example.astonlesson2.Navigator
+import com.example.astonlesson2.R
 import com.example.astonlesson2.databinding.FragmentAuthorisationBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.textfield.TextInputLayout

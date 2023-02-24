@@ -1,11 +1,10 @@
-package com.example.astonlesson2
+package com.example.astonlesson2.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.astonlesson2.databinding.FragmentAuthorisationBinding
 import com.example.astonlesson2.databinding.FragmentHomePageBinding
 
 class HomePageFragment : Fragment() {
