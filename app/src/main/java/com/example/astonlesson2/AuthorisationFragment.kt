@@ -1,59 +1,116 @@
 package com.example.astonlesson2
 
+
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.doOnTextChanged
+import androidx.fragment.app.Fragment
+import com.example.astonlesson2.databinding.FragmentAuthorisationBinding
+import com.google.android.material.textfield.TextInputLayout
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [AuthorisationFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class AuthorisationFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var _binding: FragmentAuthorisationBinding? = null
+    private val binding get() = _binding!!
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_authorisation, container, false)
+    ): View {
+        _binding = FragmentAuthorisationBinding.inflate(inflater, container, false)
+        return  _binding!!.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setUpListeners()
+
+    }
+
+    private fun checkIfLoginAndPasswordEmpty(): Boolean{
+        var isEmpty = false
+        if(binding.tieLogin.text.isNullOrEmpty() || binding.tiePassword.text.isNullOrEmpty())
+            isEmpty = true
+        return isEmpty
+    }
+
+    private fun setUpListeners(){
+        binding.tieLogin.doOnTextChanged { _, _, _, _ ->
+            changeButtonState()
+            hideError(binding.tilLogin)
+
+        }
+        binding.tiePassword.doOnTextChanged { _, _, _, _ ->
+            changeButtonState()
+            hideError(binding.tilPassword)
+
+        }
+        binding.btnEntry.setOnClickListener {
+            if(binding.tieLogin.text.toString() != LOGIN){
+                showError(binding.tilLogin)
+            }
+            else if(binding.tiePassword.text.toString() != PASSWORD){
+                showError(binding.tilPassword)
+            } else{
+                binding.progressBar.visibility = View.VISIBLE
+                MainScope().launch {
+                    delay(2000)
+                    binding.progressBar.visibility = View.GONE
+                }
+            }
+        }
+    }
+
+    private fun changeButtonState() {
+        val enabled = !checkIfLoginAndPasswordEmpty()
+        if(enabled){
+            with(binding.btnEntry){
+                alpha = 1f
+                isClickable = true
+            }
+        }else{
+            with(binding.btnEntry){
+                alpha = 0.5f
+                isClickable = false
+            }
+        }
+    }
+
+    private fun showError(textInputLayout: TextInputLayout) {
+        when(textInputLayout.id){
+            binding.tilLogin.id -> {
+                textInputLayout.error = getString(R.string.login_error)
+            }
+            binding.tilPassword.id -> {
+                textInputLayout.error = getString(R.string.password_error)
+            }
+        }
+    }
+
+    private fun hideError(textInputLayout: TextInputLayout) {
+        when(textInputLayout.id){
+            binding.tilLogin.id -> {
+                textInputLayout.error = EMPTY_STRING
+            }
+            binding.tilPassword.id -> {
+                textInputLayout.error = EMPTY_STRING
+            }
+        }
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment AuthorisationFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            AuthorisationFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+        private const val EMPTY_STRING = ""
+        private const val LOGIN = "User"
+        private const val PASSWORD = "12345"
+
+        fun newInstance() = AuthorisationFragment()
     }
 }
