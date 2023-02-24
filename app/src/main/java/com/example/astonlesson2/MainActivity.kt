@@ -22,10 +22,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        Navigator.onCreate(this)
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainer, AuthorisationFragment.newInstance())
             .commit()
 
+    }
+
+    override fun onDestroy() {
+        Navigator.onDestroy()
+        super.onDestroy()
     }
 }
