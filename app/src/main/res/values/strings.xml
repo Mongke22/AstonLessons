@@ -23,4 +23,5 @@
     <string name="icon_vacancies_text">Вакансии</string>
     <string name="icon_home_page_text">Главная</string>
     <string name="icon_offices_text">Офисы</string>
+    <string name="vacancy_hint_text">Введите вакансию</string>
 </resources>
