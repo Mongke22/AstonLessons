@@ -20,9 +20,25 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         Navigator.onCreate(this)
+
+        binding.bottomNavigationView.setOnItemReselectedListener {
+            when(it.itemId){
+                R.id.home_page_fragment -> {
+                    Navigator.moveToMainPage()
+                }
+                R.id.vacancies_fragment -> {
+                    Navigator.moveToVacanciesList()
+                }
+                R.id.offices_fragment -> {
+                    Navigator.moveToOfficesList()
+                }
+            }
+        }
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainer, AuthorisationFragment.newInstance())
