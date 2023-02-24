@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import com.example.astonlesson2.databinding.FragmentAuthorisationBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.textfield.TextInputLayout
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -20,6 +20,7 @@ class AuthorisationFragment : Fragment() {
     private var _binding: FragmentAuthorisationBinding? = null
     private val binding get() = _binding!!
 
+    private lateinit var bottomMenu: BottomNavigationView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,7 +33,13 @@ class AuthorisationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpListeners()
+        bottomMenu = requireActivity().findViewById(R.id.bottomNavigationView)
+        bottomMenu.visibility = View.GONE
+    }
 
+    override fun onDestroyView() {
+        _binding = null
+        super.onDestroyView()
     }
 
     private fun checkIfLoginAndPasswordEmpty(): Boolean{
@@ -63,7 +70,11 @@ class AuthorisationFragment : Fragment() {
                 binding.progressBar.visibility = View.VISIBLE
                 MainScope().launch {
                     delay(2000)
-                    binding.progressBar.visibility = View.GONE
+                    Navigator.moveToHomePage()
+                    bottomMenu.visibility = View.VISIBLE
+                    val menu = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+                    menu.menu.findItem(R.id.home_page_fragment).isChecked = true
+
                 }
             }
         }
