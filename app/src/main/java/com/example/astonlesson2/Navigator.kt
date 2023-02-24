@@ -7,7 +7,11 @@ object Navigator {
         mainActivity = activity
     }
 
-    fun moveToMainPage(){
+    fun moveToHomePage(){
+        mainActivity!!.supportFragmentManager.popBackStack()
+        mainActivity!!.supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, HomePageFragment.newInstance())
+            .commit()
 
     }
 
