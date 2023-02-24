@@ -21,4 +21,7 @@
     <string name="password_hint_text">Пароль</string>
     <string name="entry_button_text">Войти</string>
     <string name="test">bla-balds</string>
+    <string name="icon_vacancies_text">Вакансии</string>
+    <string name="icon_home_page_text">Главная</string>
+    <string name="icon_offices_text">Офисы</string>
 </resources>
