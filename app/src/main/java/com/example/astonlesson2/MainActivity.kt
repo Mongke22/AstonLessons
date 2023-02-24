@@ -10,39 +10,22 @@ import androidx.constraintlayout.widget.Group
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import com.example.astonlesson2.databinding.ActivityMainBinding
+import com.example.astonlesson2.databinding.FragmentAuthorisationBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var firstBtn: Button
-    private lateinit var secondBtn: Button
-    private lateinit var thirdBtn: Button
+
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        firstBtn = findViewById(R.id.firstBtn)
-        secondBtn = findViewById(R.id.secondBtn)
-        thirdBtn = findViewById(R.id.thirdBtn)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        setListeners()
-    }
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, AuthorisationFragment.newInstance())
+            .commit()
 
-    private fun setListeners(){
-        firstBtn.setOnClickListener {
-            hideButtonsAndShowProgress()
-        }
-        secondBtn.setOnClickListener {
-            hideButtonsAndShowProgress()
-        }
-        thirdBtn.setOnClickListener {
-            hideButtonsAndShowProgress()
-        }
-    }
-
-    private fun hideButtonsAndShowProgress(){
-        val groupToHide = findViewById<Group>(R.id.groupToHide)
-        val progressBar = findViewById<ProgressBar>(R.id.progressBar)
-        groupToHide.visibility = View.GONE
-        progressBar.visibility = View.VISIBLE
     }
 }
