@@ -1,8 +1,11 @@
 package com.example.astonlesson2
 
 import com.example.astonlesson2.fragments.HomePageFragment
+import com.example.astonlesson2.fragments.OfficesListFragment
 import com.example.astonlesson2.fragments.VacanciesListFragment
+import com.example.astonlesson2.models.Office
 import com.example.astonlesson2.models.Vacancy
+import java.util.Spliterator.OfInt
 
 object Navigator {
     private var mainActivity: MainActivity? = null
@@ -51,7 +54,47 @@ object Navigator {
     }
 
     fun moveToOfficesList(){
-
+        val myList: ArrayList<Office> = arrayListOf(
+            Office(0,
+                R.layout.russian_office_list_element,
+                R.drawable.small_russian,
+                "Россия",
+                "Санкт-Петербург",
+                "Владимирский проспект, 23, БЦ «Ренессанс Холл», 8 этаж, 801"
+            ),
+            Office(1,
+                R.layout.belarusian_office_list_element,
+                R.drawable.small_belarusian,
+                "Беларусь",
+                "Минск",
+                "пр-т Победителей, 7А"
+            ),
+            Office(2,
+                R.layout.belarusian_office_list_element,
+                R.drawable.small_belarusian,
+                "Беларусь",
+                "Гомель",
+                "ул. Советская, 41Б"
+            ),
+            Office(3,
+                R.layout.russian_office_list_element,
+                R.drawable.small_russian,
+                "Россия",
+                "Казань",
+                "ул. Н. Ершова, 76/1, оф. 213"
+            ),
+            Office(4,
+                R.layout.russian_office_list_element,
+                R.drawable.small_russian,
+                "Россия",
+                "Ростов-на-Дону",
+                "ул. Текучева, 246, 3 этаж"
+            ),
+            )
+        mainActivity!!.supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, OfficesListFragment.newInstance(myList))
+            .addToBackStack(null)
+            .commit()
     }
 
     fun onDestroy(){
