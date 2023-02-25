@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
+import com.example.astonlesson2.Navigator
 import com.example.astonlesson2.models.Vacancy
 import com.example.astonlesson2.databinding.FragmentVacanciesListBinding
 import com.example.astonlesson2.recycler.adapters.VacancyListAdapter
@@ -18,7 +20,14 @@ class VacanciesListFragment : Fragment() {
     private lateinit var vacancyListAdapter: VacancyListAdapter
 
     private var wholeVacancyList = ArrayList<Vacancy>()
-
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        requireActivity().onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true){
+            override fun handleOnBackPressed() {
+                Navigator.moveToHomePage()
+            }
+        })
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

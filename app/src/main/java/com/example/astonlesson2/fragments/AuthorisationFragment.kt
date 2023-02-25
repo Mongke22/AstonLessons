@@ -5,11 +5,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import com.example.astonlesson2.Navigator
 import com.example.astonlesson2.R
 import com.example.astonlesson2.databinding.FragmentAuthorisationBinding
+import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.MainScope
@@ -23,7 +25,14 @@ class AuthorisationFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var bottomMenu: BottomNavigationView
-
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        requireActivity().onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true){
+            override fun handleOnBackPressed() {
+                Navigator.moveToHomePage()
+            }
+        })
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -76,7 +85,7 @@ class AuthorisationFragment : Fragment() {
                     bottomMenu.visibility = View.VISIBLE
                     val menu = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
                     menu.menu.findItem(R.id.home_page_fragment).isChecked = true
-                    requireActivity().title = "Home"
+                    requireActivity().findViewById<MaterialToolbar>(R.id.toolBar).title = "Home"
 
                 }
             }

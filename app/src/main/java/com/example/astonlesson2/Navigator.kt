@@ -1,11 +1,14 @@
 package com.example.astonlesson2
 
+import com.example.astonlesson2.fragments.DetailOfficeInfo
 import com.example.astonlesson2.fragments.HomePageFragment
 import com.example.astonlesson2.fragments.OfficesListFragment
 import com.example.astonlesson2.fragments.VacanciesListFragment
 import com.example.astonlesson2.models.Office
 import com.example.astonlesson2.models.Vacancy
-import java.util.Spliterator.OfInt
+import com.google.android.material.appbar.MaterialToolbar
+import com.google.android.material.bottomnavigation.BottomNavigationView
+
 
 object Navigator {
     private var mainActivity: MainActivity? = null
@@ -15,6 +18,9 @@ object Navigator {
     }
 
     fun moveToHomePage(){
+        mainActivity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu
+            .findItem(R.id.home_page_fragment).isChecked = true
+        mainActivity!!.findViewById<MaterialToolbar>(R.id.toolBar).title = "Home"
         mainActivity!!.supportFragmentManager.popBackStack()
         mainActivity!!.supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainer, HomePageFragment.newInstance())
@@ -47,10 +53,14 @@ object Navigator {
             Vacancy(21, R.drawable.aston_logo, "Title11", "Мы – аутсорсинговая аккредитованная IT-компания Aston. С нами вы сможете хорошо зарабатывать, работать над масштабными проектами и профессионально расти в команде."),
             Vacancy(22, R.drawable.aston_logo, "Title11", "Мы – аутсорсинговая аккредитованная IT-компания Aston. С нами вы сможете хорошо зарабатывать, работать над масштабными проектами и профессионально расти в команде."),
         )
+        mainActivity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu
+            .findItem(R.id.vacancies_fragment).isChecked = true
+        mainActivity!!.findViewById<MaterialToolbar>(R.id.toolBar).title = "Vacancies"
         mainActivity!!.supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainer, VacanciesListFragment.newInstance(myList))
             .addToBackStack(null)
             .commit()
+
     }
 
     fun moveToOfficesList(){
@@ -91,13 +101,31 @@ object Navigator {
                 "ул. Текучева, 246, 3 этаж"
             ),
             )
+        mainActivity!!.findViewById<BottomNavigationView>(R.id.bottomNavigationView).menu
+            .findItem(R.id.offices_fragment).isChecked = true
+        mainActivity!!.findViewById<MaterialToolbar>(R.id.toolBar).title = "Office"
         mainActivity!!.supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainer, OfficesListFragment.newInstance(myList))
-            .addToBackStack(null)
             .commit()
+
+    }
+
+    fun moveToDetailOfficeInfo(item: Office, safeFragment: Boolean = false){
+        mainActivity!!.findViewById<MaterialToolbar>(R.id.toolBar).setNavigationIcon(R.drawable.ic_arrow_back)
+        if(safeFragment) {
+            mainActivity!!.supportFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, DetailOfficeInfo.newInstance(item))
+                .addToBackStack(null)
+                .commit()
+        }else{
+            mainActivity!!.supportFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, DetailOfficeInfo.newInstance(item))
+                .commit()
+        }
     }
 
     fun onDestroy(){
         mainActivity = null
     }
+
 }

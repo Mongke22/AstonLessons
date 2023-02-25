@@ -1,5 +1,7 @@
 package com.example.astonlesson2.models
 
+import java.io.Serializable
+
 data class Office(
     val id: Int,
     val type: Int,
@@ -7,4 +9,4 @@ data class Office(
     val country: String,
     val city: String,
     val location: String
-)
+): Serializable

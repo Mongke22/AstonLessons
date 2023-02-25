@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.example.astonlesson2.R
 import com.example.astonlesson2.databinding.BelarusianOfficeListElementBinding
+import com.example.astonlesson2.databinding.FragmentOfficesListBinding
 import com.example.astonlesson2.databinding.RussianOfficeListElementBinding
 import com.example.astonlesson2.models.Office
 import com.example.astonlesson2.recycler.OfficeDiffCallBack
@@ -19,16 +20,20 @@ class OfficeListAdapter: ListAdapter<Office, OfficeViewHolder>(OfficeDiffCallBac
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OfficeViewHolder {
         return when(viewType){
             R.layout.russian_office_list_element -> {
-                RussianOfficeViewHolder(RussianOfficeListElementBinding.inflate(LayoutInflater.from(parent.context)))
+                RussianOfficeViewHolder(RussianOfficeListElementBinding.inflate(
+                    LayoutInflater.from(parent.context), parent, false)
+                )
             }
             else -> {
-                BelarusianOfficeViewHolder(BelarusianOfficeListElementBinding.inflate(LayoutInflater.from(parent.context)))
+                BelarusianOfficeViewHolder(BelarusianOfficeListElementBinding.inflate(
+                    LayoutInflater.from(parent.context), parent, false)
+                )
             }
         }
     }
 
     override fun onBindViewHolder(holder: OfficeViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        holder.populate(getItem(position), onClickFunction!!)
     }
 
     override fun getItemViewType(position: Int): Int {

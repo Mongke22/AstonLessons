@@ -3,15 +3,8 @@ package com.example.astonlesson2
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.ProgressBar
-import androidx.constraintlayout.widget.Group
-import androidx.core.view.WindowCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.WindowInsetsControllerCompat
 import com.example.astonlesson2.databinding.ActivityMainBinding
-import com.example.astonlesson2.databinding.FragmentAuthorisationBinding
+import com.example.astonlesson2.fragments.AuthorisationFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,15 +22,23 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigationView.setOnItemReselectedListener {
             when(it.itemId){
                 R.id.home_page_fragment -> {
-                    Navigator.moveToMainPage()
+                    binding.toolBar.title = "Home"
+                    Navigator.moveToHomePage()
                 }
                 R.id.vacancies_fragment -> {
+                    binding.toolBar.title = "Vacancies"
                     Navigator.moveToVacanciesList()
                 }
                 R.id.offices_fragment -> {
+                    binding.toolBar.title = "Offices"
                     Navigator.moveToOfficesList()
                 }
             }
+        }
+        binding.toolBar.setNavigationOnClickListener {
+            supportFragmentManager.popBackStack()
+            Navigator.moveToOfficesList()
+            binding.toolBar.navigationIcon = null
         }
 
         supportFragmentManager.beginTransaction()
