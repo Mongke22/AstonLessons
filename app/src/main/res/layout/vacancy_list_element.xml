@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/standard_padding_margin"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <com.example.astonlesson2.AstonElement
         android:layout_width="0dp"
