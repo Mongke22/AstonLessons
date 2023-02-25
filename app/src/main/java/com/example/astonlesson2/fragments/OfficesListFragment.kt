@@ -10,6 +10,7 @@ import com.example.astonlesson2.databinding.FragmentOfficesListBinding
 import com.example.astonlesson2.databinding.FragmentVacanciesListBinding
 import com.example.astonlesson2.models.Office
 import com.example.astonlesson2.models.Vacancy
+import com.example.astonlesson2.recycler.adapters.OfficeListAdapter
 import com.example.astonlesson2.recycler.adapters.VacancyListAdapter
 
 
