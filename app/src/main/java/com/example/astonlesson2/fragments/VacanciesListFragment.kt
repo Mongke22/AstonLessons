@@ -17,6 +17,8 @@ class VacanciesListFragment : Fragment() {
 
     private lateinit var vacancyListAdapter: VacancyListAdapter
 
+    private var wholeVacancyList = ArrayList<Vacancy>()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -29,6 +31,13 @@ class VacanciesListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupRecyclerView()
         parseParams()
+        binding.etSearch.etVacancy.setOnClickListener {
+            binding.etSearch.etVacancy.setText("")
+        }
+        binding.etSearch.ivSearch.setOnClickListener {
+            val vacancyArray = getSearchingVacancies(binding.etSearch.etVacancy.text.toString())
+            vacancyListAdapter.submitList(vacancyArray)
+        }
     }
 
     override fun onDestroyView() {
@@ -39,11 +48,8 @@ class VacanciesListFragment : Fragment() {
     private fun parseParams(){
         val args = requireArguments()
         if(args.containsKey(VACANCIES_LIST_TAG)){
-            val list = args.getSerializable(VACANCIES_LIST_TAG) as ArrayList<Vacancy>
-            for(i in list){
-                Log.i("element", i.toString())
-            }
-            vacancyListAdapter.submitList(list)
+            wholeVacancyList = args.getSerializable(VACANCIES_LIST_TAG) as ArrayList<Vacancy>
+            vacancyListAdapter.submitList(wholeVacancyList)
         }
     }
 
@@ -52,6 +58,16 @@ class VacanciesListFragment : Fragment() {
         with(binding.rvVacanciesList) {
             adapter = vacancyListAdapter
         }
+    }
+
+    private fun getSearchingVacancies(vacancy: String): ArrayList<Vacancy>{
+        val result = ArrayList<Vacancy>()
+        for(vac in wholeVacancyList){
+            if(vac.title.lowercase().contains(vacancy.lowercase())){
+                result.add(vac)
+            }
+        }
+        return result
     }
 
 
