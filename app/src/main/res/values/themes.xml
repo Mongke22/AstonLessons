@@ -21,4 +21,5 @@
         <item name="astonTitleText">@string/Title</item>
         <item name="astonSubTitleText">@string/subTitle</item>
     </style>
+
 </resources>
