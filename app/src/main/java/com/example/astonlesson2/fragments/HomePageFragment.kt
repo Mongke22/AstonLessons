@@ -5,7 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.astonlesson2.R
 import com.example.astonlesson2.databinding.FragmentHomePageBinding
+import com.example.astonlesson2.models.MainPageModel
+import com.example.astonlesson2.recycler.adapters.MainPageAdapter
 
 class HomePageFragment : Fragment() {
 
@@ -18,6 +21,15 @@ class HomePageFragment : Fragment() {
     ): View {
         _binding = FragmentHomePageBinding.inflate(inflater, container, false)
         return  _binding!!.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val layoutList = ArrayList<MainPageModel>()
+        layoutList.add(MainPageModel(R.layout.home_page_first_part))
+        layoutList.add(MainPageModel(R.layout.home_page_second_part))
+        layoutList.add(MainPageModel(R.layout.home_page_third_part))
+        binding.rvList.adapter = MainPageAdapter(layoutList)
     }
 
     override fun onDestroyView() {

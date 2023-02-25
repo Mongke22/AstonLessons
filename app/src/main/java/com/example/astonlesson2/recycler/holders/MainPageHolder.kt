@@ -12,16 +12,16 @@ abstract class MainPageHolder(itemView: View) : RecyclerView.ViewHolder(itemView
 
 class FirstPartHolder(binding: HomePageFirstPartBinding): MainPageHolder(binding.root){
     override fun populate() {
-        TODO("Not yet implemented")
+
     }
 }
 class SecondPartHolder(binding: HomePageSecondPartBinding): MainPageHolder(binding.root){
     override fun populate() {
-        TODO("Not yet implemented")
+
     }
 }
 class ThirdPartHolder(binding: HomePageThirdPartBinding): MainPageHolder(binding.root){
     override fun populate() {
-        TODO("Not yet implemented")
+
     }
 }
