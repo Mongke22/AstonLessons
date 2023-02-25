@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/vacancies_fragment"
+        android:title="@string/icon_vacancies_text"
+        android:icon="@drawable/ic_vacancies"/>
+    <item
+        android:id="@+id/home_page_fragment"
+        android:title="@string/icon_home_page_text"
+        android:icon="@drawable/ic_home_page"/>
+    <item
+        android:id="@+id/offices_fragment"
+        android:title="@string/icon_offices_text"
+        android:icon="@drawable/ic_offices"/>
+</menu>

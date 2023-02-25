@@ -3,4 +3,5 @@
     <dimen name="standardMargin">5dp</dimen>
     <dimen name="marginLeftRight">10dp</dimen>
     <dimen name="mainTextSize">26sp</dimen>
+    <dimen name="standard_padding_margin">10dp</dimen>
 </resources>
